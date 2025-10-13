@@ -1,5 +1,5 @@
 
-Github Repositories
+GitHub Repositories
 ===================
 
  * https://github.com/wrs-sim/WRS2025

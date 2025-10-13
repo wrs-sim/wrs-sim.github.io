@@ -13,8 +13,8 @@ Installing AGX Dynamics
 
  * `Choreonoid master documentation: Installation of AGX Dynamics (Ubuntu Linux) <https://choreonoid.org/en/documents/latest/agxdynamics/install/install-agx-ubuntu.html>`_
 
-Installing ROS2
----------------
+Installing ROS2 & Choreonoid
+----------------------------
 
  * `Choreonoid master documentation: ROS 2 Integration <https://choreonoid.org/en/documents/latest/ros2/index.html>`_
 
