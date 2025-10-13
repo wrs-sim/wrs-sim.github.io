@@ -1,0 +1,5 @@
+
+Installation
+============
+
+ * `Choreonoid master documentation: ROS 2 Integration <https://choreonoid.org/en/documents/latest/ros2/index.html>`_
