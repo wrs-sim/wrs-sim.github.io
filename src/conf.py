@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'World Robot Summit Simulation Disaster Challenge'
+project = 'WRS Simulation Disaster Challenge'
 copyright = '2025, Kenta Suzuki'
 author = 'Kenta Suzuki'
 release = '0.0'
