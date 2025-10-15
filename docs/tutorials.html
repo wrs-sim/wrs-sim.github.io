@@ -46,12 +46,28 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-agx-dynamics">Installing AGX Dynamics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-ros2-choreonoid">Installing ROS2 &amp; Choreonoid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#building-choreonoid-competition-version">Building Choreonoid competition version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-ros2">Installing ROS2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-sources">Setup Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-ros-2-packages">Install ROS 2 packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-setup">Environment setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initialize-rosdep">Initialize rosdep</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#developing-robot-package">Developing ROBOT PACKAGE</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#template-of-robot-package">Template of ROBOT PACKAGE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#references-for-making-body-file">References for making Body file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#building-choreonoid-competition-version">Building Choreonoid competition version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-new-directory">Create a new directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clone-source-repo">Clone source repo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resolve-dependencies">Resolve dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#agx-dynamics-installation-reference">AGX Dynamics installation reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hairoworldplugin-installation-reference">HAIROWorldPlugin installation reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-robot-package">Install ROBOT PACKAGE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-requisites">Install requisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-choreonoid">Build Choreonoid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references-for-building-choreonoid">References for building Choreonoid</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#running-choreonoid">Running Choreonoid</a></li>
@@ -91,28 +107,52 @@
 <blockquote>
 <div><ul class="simple">
 <li><p>Ubuntu 22.04 LTS (Humble Hawksbill)</p></li>
-<li><p>Ubuntu 24.04 LTS (Jazzy Jalisco)</p></li>
 </ul>
 </div></blockquote>
 </section>
-<section id="installing-agx-dynamics">
-<h2>Installing AGX Dynamics<a class="headerlink" href="#installing-agx-dynamics" title="Link to this heading"></a></h2>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="https://choreonoid.org/en/documents/latest/agxdynamics/install/install-agx-ubuntu.html">Choreonoid master documentation: Installation of AGX Dynamics (Ubuntu Linux)</a></p></li>
-</ul>
-</div></blockquote>
+<section id="installing-ros2">
+<h2>Installing ROS2<a class="headerlink" href="#installing-ros2" title="Link to this heading"></a></h2>
+<section id="setup-sources">
+<h3>Setup Sources<a class="headerlink" href="#setup-sources" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>software-properties-common
+$<span class="w"> </span>sudo<span class="w"> </span>add-apt-repository<span class="w"> </span>universe
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>-y
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_APT_SOURCE_VERSION</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-F<span class="w"> </span><span class="s2">&quot;tag_name&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="se">\&quot;</span><span class="w"> </span><span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
+$<span class="w"> </span>curl<span class="w"> </span>-L<span class="w"> </span>-o<span class="w"> </span>/tmp/ros2-apt-source.deb<span class="w"> </span><span class="s2">&quot;https://github.com/ros-infrastructure/ros-apt-source/releases/download/</span><span class="si">${</span><span class="nv">ROS_APT_SOURCE_VERSION</span><span class="si">}</span><span class="s2">/ros2-apt-source_</span><span class="si">${</span><span class="nv">ROS_APT_SOURCE_VERSION</span><span class="si">}</span><span class="s2">.</span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="k">:-</span><span class="si">${</span><span class="nv">VERSION_CODENAME</span><span class="si">}}</span><span class="k">)</span><span class="s2">_all.deb&quot;</span>
+$<span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>/tmp/ros2-apt-source.deb
+</pre></div>
+</div>
 </section>
-<section id="installing-ros2-choreonoid">
-<h2>Installing ROS2 &amp; Choreonoid<a class="headerlink" href="#installing-ros2-choreonoid" title="Link to this heading"></a></h2>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="https://choreonoid.org/en/documents/latest/ros2/index.html">Choreonoid master documentation: ROS 2 Integration</a></p></li>
-</ul>
-</div></blockquote>
+<section id="install-ros-2-packages">
+<h3>Install ROS 2 packages<a class="headerlink" href="#install-ros-2-packages" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-desktop
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-dev-tools
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-colcon-clean
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-compressed-image-transport
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-colcon-common-extensions
+</pre></div>
+</div>
 </section>
-<section id="building-choreonoid-competition-version">
-<h2>Building Choreonoid competition version<a class="headerlink" href="#building-choreonoid-competition-version" title="Link to this heading"></a></h2>
+<section id="environment-setup">
+<h3>Environment setup<a class="headerlink" href="#environment-setup" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source /opt/ros/humble/setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</pre></div>
+</div>
+</section>
+<section id="initialize-rosdep">
+<h3>Initialize rosdep<a class="headerlink" href="#initialize-rosdep" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>rosdep<span class="w"> </span>init
+$<span class="w"> </span>rosdep<span class="w"> </span>update
+</pre></div>
+</div>
+</section>
 </section>
 <section id="developing-robot-package">
 <h2>Developing ROBOT PACKAGE<a class="headerlink" href="#developing-robot-package" title="Link to this heading"></a></h2>
@@ -135,8 +175,146 @@
 </div></blockquote>
 </section>
 </section>
+<section id="building-choreonoid-competition-version">
+<h2>Building Choreonoid competition version<a class="headerlink" href="#building-choreonoid-competition-version" title="Link to this heading"></a></h2>
+<section id="create-a-new-directory">
+<h3>Create a new directory<a class="headerlink" href="#create-a-new-directory" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros2_ws/src
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src
+</pre></div>
+</div>
+</section>
+<section id="clone-source-repo">
+<h3>Clone source repo<a class="headerlink" href="#clone-source-repo" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src
+$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/choreonoid/choreonoid.git
+$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/choreonoid/choreonoid_ros.git
+$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/wrs-sim/wrs-plugin<span class="w"> </span>choreonoid/ext/wrs-plugin
+$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/wrs-sim/choreonoid_joy2.git
+</pre></div>
+</div>
+</section>
+<section id="resolve-dependencies">
+<h3>Resolve dependencies<a class="headerlink" href="#resolve-dependencies" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--from-paths<span class="w"> </span>~/ros2_ws/src<span class="w"> </span>--ignore-src
+</pre></div>
+</div>
+</section>
+<section id="agx-dynamics-installation-reference">
+<h3>AGX Dynamics installation reference<a class="headerlink" href="#agx-dynamics-installation-reference" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://choreonoid.org/en/documents/latest/agxdynamics/install/install-agx-ubuntu.html">Choreonoid master documentation: Installation of AGX Dynamics (Ubuntu Linux)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=SxmwYl_gPEY">Tutorial video</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="hairoworldplugin-installation-reference">
+<h3>HAIROWorldPlugin installation reference<a class="headerlink" href="#hairoworldplugin-installation-reference" title="Link to this heading"></a></h3>
+<p>Please obtain this software before building Choreonoid's WRS environment specification. Competitors are requested to contact the competition secretariat. Others should contact JAEA Suzuki at &quot;suzuki.kenta38[a]jaea.go.jp&quot;. (Change the [a] to &#64; when you send us an email.)
+<strong>Move hairo-world-plugin to choreonoid/ext/.</strong></p>
+</section>
+<section id="install-robot-package">
+<h3>Install ROBOT PACKAGE<a class="headerlink" href="#install-robot-package" title="Link to this heading"></a></h3>
+<p><strong>Move ROBOT PACKAGE to choreonoid/ext/.</strong>
+Additionally, when you want to use your own UGV, edit share/default/materials.yaml. Replace &quot;YourRobot&quot; on line 212 with the body name of your own UGV, and replace &quot;CHASSIS&quot; on line 213 with the root link of your own UGV.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">reference_body</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YourRobot</span>
+<span class="nt">reference_link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CHASSIS</span>
+</pre></div>
+</div>
+</section>
+<section id="install-requisites">
+<h3>Install requisites<a class="headerlink" href="#install-requisites" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>choreonoid/misc/script/install-requisites-ubuntu-22.04.sh
+$<span class="w"> </span>sudo<span class="w"> </span>./choreonoid/ext/hairo-world-plugin/misc/script/install-requisites-ubuntu-22.04.sh
+</pre></div>
+</div>
+</section>
+<section id="build-choreonoid">
+<h3>Build Choreonoid<a class="headerlink" href="#build-choreonoid" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+$<span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_AGX_DYNAMICS_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_AGX_BODYEXTENSION_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_SCENE_EFFECTS_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_HAIRO_WORLD_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DENABLE_INSTALL_RPATH_USE_LINK_PATH<span class="o">=</span>ON
+</pre></div>
+</div>
+<p><strong>By building Choreonoid, your model and project files will be cloned to install directory, and your controller files will be compiled. When you want to update your model, project and controller files, you should build Choreonoid again.</strong></p>
+</section>
+<section id="references-for-building-choreonoid">
+<h3>References for building Choreonoid<a class="headerlink" href="#references-for-building-choreonoid" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://choreonoid.org/en/documents/latest/ros2/index.html">Choreonoid master documentation: ROS 2 Integration</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
 <section id="running-choreonoid">
 <h2>Running Choreonoid<a class="headerlink" href="#running-choreonoid" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>install/setup.bash
+$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>choreonoid_ros<span class="w"> </span>choreonoid<span class="w"> </span>~/ros2_ws/src/choreonoid/ext/wrs-plugin/registration/registration_wrs2020.yaml<span class="w"> </span>--wrs-util<span class="w"> </span>ts1
+</pre></div>
+</div>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Detail of YAML files</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 27.3%" />
+<col style="width: 18.2%" />
+<col style="width: 54.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>YAML file</p></th>
+<th class="head"><p>Arguments</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>registration_wrs2020.yaml</p></td>
+<td><p>ts1</p></td>
+<td><p>Load WRS2020 TS1 environment</p></td>
+</tr>
+<tr class="row-odd"><td><p>registration_wrs2020.yaml</p></td>
+<td><p>ts2</p></td>
+<td><p>Load WRS2020 TS2 environment</p></td>
+</tr>
+<tr class="row-even"><td><p>registration_wrs2020.yaml</p></td>
+<td><p>ts3</p></td>
+<td><p>Load WRS2020 TS3 environment</p></td>
+</tr>
+<tr class="row-odd"><td><p>registration_wrs2020.yaml</p></td>
+<td><p>ts4</p></td>
+<td><p>Load WRS2020 TS4 environment</p></td>
+</tr>
+<tr class="row-even"><td><p>registration_wrs2025.yaml</p></td>
+<td><p>testrun</p></td>
+<td><p>Load WRS2025 test run environment</p></td>
+</tr>
+<tr class="row-odd"><td><p>registration_wrs2025.yaml</p></td>
+<td><p>ps1</p></td>
+<td><p>Load WRS2025 PS-1 environment</p></td>
+</tr>
+<tr class="row-even"><td><p>registration_wrs2025.yaml</p></td>
+<td><p>ps2</p></td>
+<td><p>Load WRS2025 PS-2 environment</p></td>
+</tr>
+<tr class="row-odd"><td><p>registration_wrs2025.yaml</p></td>
+<td><p>ps3</p></td>
+<td><p>Load WRS2025 PS-3 environment</p></td>
+</tr>
+<tr class="row-even"><td><p>registration_wrs2025.yaml</p></td>
+<td><p>ps4</p></td>
+<td><p>Load WRS2025 PS-4 environment</p></td>
+</tr>
+<tr class="row-odd"><td><p>registration_wrs2025.yaml</p></td>
+<td><p>ps12</p></td>
+<td><p>Load WRS2025 PS-12 environment</p></td>
+</tr>
+<tr class="row-even"><td><p>registration_wrs2025.yaml</p></td>
+<td><p>ps34</p></td>
+<td><p>Load WRS2025 PS-34 environment</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 
