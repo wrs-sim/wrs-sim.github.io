@@ -50,10 +50,10 @@
 <li class="toctree-l2"><a class="reference internal" href="run_cnoid.html">Running Choreonoid</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Developing ROBOT PACKAGE</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#template-of-robot-package">Template of ROBOT PACKAGE</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-new-directory">Create a new directory</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-body-file">Create a Body file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-project-file">Create a Project file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-simplecontroller">Create a SimpleController</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step1-create-a-new-directory">STEP1 Create a new directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step2-create-a-body-file">STEP2 Create a Body file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step3-create-a-simplecontroller-for-subscriber">STEP3 Create a SimpleController for Subscriber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step4-create-a-project-file">STEP4 Create a Project file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#edit-a-yaml-file">Edit a YAML file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#install-robot-package">Install ROBOT PACKAGE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#run-choreonoid">Run Choreonoid</a></li>
@@ -100,33 +100,60 @@
 </ul>
 </div></blockquote>
 </section>
-<section id="create-a-new-directory">
-<h2>Create a new directory<a class="headerlink" href="#create-a-new-directory" title="Link to this heading"></a></h2>
-<p>Now editing...</p>
+<section id="step1-create-a-new-directory">
+<h2>STEP1 Create a new directory<a class="headerlink" href="#step1-create-a-new-directory" title="Link to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">-+- &lt;your_robot&gt; ... any name is ok</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">+- controller</span>
+<span class="w">     </span><span class="l l-Scalar l-Scalar-Plain">+- CMakeLists.txt ... see ROBOT PACKAGE templates</span>
+<span class="w">     </span><span class="l l-Scalar l-Scalar-Plain">+- &lt;your_controller&gt;.cpp ... STEP3</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">+- model</span>
+<span class="w">     </span><span class="l l-Scalar l-Scalar-Plain">+- &lt;your_robot&gt;.body ... STEP2</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">+- project</span>
+<span class="w">       </span><span class="l l-Scalar l-Scalar-Plain">+- &lt;your_robot&gt;.cnoid ... STEP4</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">+- CMakeLists.txt ... see ROBOT PACKAGE templates</span>
+</pre></div>
+</div>
 </section>
-<section id="create-a-body-file">
-<h2>Create a Body file<a class="headerlink" href="#create-a-body-file" title="Link to this heading"></a></h2>
+<section id="step2-create-a-body-file">
+<h2>STEP2 Create a Body file<a class="headerlink" href="#step2-create-a-body-file" title="Link to this heading"></a></h2>
 <blockquote>
 <div><ul class="simple">
 <li><p><a class="reference external" href="https://choreonoid.org/en/documents/latest/handling-models/modelfile/modelfile-newformat.html">Choreonoid master documentation: Body File Tutorial</a></p></li>
 </ul>
 </div></blockquote>
 </section>
-<section id="create-a-project-file">
-<h2>Create a Project file<a class="headerlink" href="#create-a-project-file" title="Link to this heading"></a></h2>
-<p>Now editing...</p>
-</section>
-<section id="create-a-simplecontroller">
-<h2>Create a SimpleController<a class="headerlink" href="#create-a-simplecontroller" title="Link to this heading"></a></h2>
+<section id="step3-create-a-simplecontroller-for-subscriber">
+<h2>STEP3 Create a SimpleController for Subscriber<a class="headerlink" href="#step3-create-a-simplecontroller-for-subscriber" title="Link to this heading"></a></h2>
 <blockquote>
 <div><ul class="simple">
 <li><p><a class="reference external" href="https://choreonoid.org/en/documents/latest/ros2/ros2-mobile-robot-tutorial.html">Choreonoid master documentation: ROS 2 Mobile Robot Tutorial¶</a></p></li>
 </ul>
 </div></blockquote>
 </section>
+<section id="step4-create-a-project-file">
+<h2>STEP4 Create a Project file<a class="headerlink" href="#step4-create-a-project-file" title="Link to this heading"></a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Launch Choreonoid</p></li>
+<li><p>Open the Body file of STEP2</p></li>
+<li><p>Add SimpleController of STEP3 as a child item of the Body file</p></li>
+<li><p>Add BodyROS2Item as a child item of the Body file</p></li>
+<li><p>Save a project file</p></li>
+</ol>
+</div></blockquote>
+<p><strong>DO NOT change Body's translation (X, Y) and rotation (R, P, Y) values</strong></p>
+</section>
 <section id="edit-a-yaml-file">
 <h2>Edit a YAML file<a class="headerlink" href="#edit-a-yaml-file" title="Link to this heading"></a></h2>
-<p>Now editing...</p>
+<p>Here, we use <strong>wrs-plugin/registration/registration_wrs2025.yaml</strong> as an example of YAML file.
+Open the YAML file in any text editor and replace the second line with the following:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">robot_list</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;RobotList</span><span class="w">  </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">&lt;Name of the project where the custom robot model is saved&gt;</span><span class="w"> </span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>When you want to introduce additional custom robot model, you should written RobotList as follows:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">robot_list</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;RobotList</span><span class="w">  </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">&lt;Name of the project where the custom robot model is saved&gt;</span><span class="p p-Indicator">,</span><span class="w">  </span><span class="nv">&lt;Name of the project where the additional custom robot model is saved&gt;</span><span class="w"> </span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
 </section>
 <section id="install-robot-package">
 <h2>Install ROBOT PACKAGE<a class="headerlink" href="#install-robot-package" title="Link to this heading"></a></h2>
@@ -138,14 +165,19 @@ Additionally, when you want to use your own UGV, edit share/default/materials.ya
 </div>
 <p>Then, rebuild Choreonoid for cloning your model and project files, and for compling your controller files.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
-$<span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_AGX_DYNAMICS_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_AGX_BODYEXTENSION_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_SCENE_EFFECTS_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_HAIRO_WORLD_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DENABLE_INSTALL_RPATH_USE_LINK_PATH<span class="o">=</span>ON
+$<span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_AGX_DYNAMICS_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_AGX_BODYEXTENSION_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_SCENE_EFFECTS_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_HAIRO_WORLD_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DENABLE_INSTALL_RPATH_USE_LINK_PATH<span class="o">=</span>ON<span class="w"> </span>–cmake-clean-cache
 </pre></div>
 </div>
 <p><strong>When you want to update your model, project and controller files, you should build Choreonoid again.</strong></p>
 </section>
 <section id="run-choreonoid">
 <h2>Run Choreonoid<a class="headerlink" href="#run-choreonoid" title="Link to this heading"></a></h2>
-<p>Now editing...</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>install/setup.bash
+$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>choreonoid_ros<span class="w"> </span>choreonoid<span class="w"> </span>~/ros2_ws/src/choreonoid/ext/wrs-plugin/registration/registration_wrs2025.yaml<span class="w"> </span>--wrs-util<span class="w"> </span>ps1
+</pre></div>
+</div>
 </section>
 </section>
 
