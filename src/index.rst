@@ -10,7 +10,8 @@ Welcome to WRS Simulation Disaster Challenge's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   tutorials
+   installation/index
+   tutorials/index
    repositories
 
 Indices and tables

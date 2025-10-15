@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developing ROBOT PACKAGE &mdash; WRS Simulation Disaster Challenge 0.0 ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=86f27845" />
+
+  
+  
+        <script src="../_static/jquery.js?v=8dae8fb0"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1a6bc256"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=4dbe4bdc"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="GitHub Repositories" href="../repositories.html" />
+    <link rel="prev" title="Running Choreonoid" href="run_cnoid.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            WRS Simulation Disaster Challenge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="create_ws.html">Creating a workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run_cnoid.html">Running Choreonoid</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Developing ROBOT PACKAGE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#template-of-robot-package">Template of ROBOT PACKAGE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-new-directory">Create a new directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-body-file">Create a Body file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-project-file">Create a Project file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-simplecontroller">Create a SimpleController</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edit-a-yaml-file">Edit a YAML file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-robot-package">Install ROBOT PACKAGE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-choreonoid">Run Choreonoid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../repositories.html">GitHub Repositories</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WRS Simulation Disaster Challenge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">Developing ROBOT PACKAGE</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/develop_robot.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="developing-robot-package">
+<h1>Developing ROBOT PACKAGE<a class="headerlink" href="#developing-robot-package" title="Link to this heading"></a></h1>
+<section id="template-of-robot-package">
+<h2>Template of ROBOT PACKAGE<a class="headerlink" href="#template-of-robot-package" title="Link to this heading"></a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/wrs-sim/wrs-robot-template">Template robot package</a></p></li>
+<li><p><a class="reference external" href="https://github.com/wrs-sim/wrs-drone-template">Template drone package</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-a-new-directory">
+<h2>Create a new directory<a class="headerlink" href="#create-a-new-directory" title="Link to this heading"></a></h2>
+<p>Now editing...</p>
+</section>
+<section id="create-a-body-file">
+<h2>Create a Body file<a class="headerlink" href="#create-a-body-file" title="Link to this heading"></a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://choreonoid.org/en/documents/latest/handling-models/modelfile/modelfile-newformat.html">Choreonoid master documentation: Body File Tutorial</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-a-project-file">
+<h2>Create a Project file<a class="headerlink" href="#create-a-project-file" title="Link to this heading"></a></h2>
+<p>Now editing...</p>
+</section>
+<section id="create-a-simplecontroller">
+<h2>Create a SimpleController<a class="headerlink" href="#create-a-simplecontroller" title="Link to this heading"></a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://choreonoid.org/en/documents/latest/ros2/ros2-mobile-robot-tutorial.html">Choreonoid master documentation: ROS 2 Mobile Robot Tutorial¶</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="edit-a-yaml-file">
+<h2>Edit a YAML file<a class="headerlink" href="#edit-a-yaml-file" title="Link to this heading"></a></h2>
+<p>Now editing...</p>
+</section>
+<section id="install-robot-package">
+<h2>Install ROBOT PACKAGE<a class="headerlink" href="#install-robot-package" title="Link to this heading"></a></h2>
+<p><strong>Move ROBOT PACKAGE to choreonoid/ext/.</strong>
+Additionally, when you want to use your own UGV, edit share/default/materials.yaml. Replace &quot;YourRobot&quot; on line 212 with the body name of your own UGV, and replace &quot;CHASSIS&quot; on line 213 with the root link of your own UGV.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">reference_body</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YourRobot</span>
+<span class="nt">reference_link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CHASSIS</span>
+</pre></div>
+</div>
+<p>Then, rebuild Choreonoid for cloning your model and project files, and for compling your controller files.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+$<span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_AGX_DYNAMICS_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_AGX_BODYEXTENSION_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_SCENE_EFFECTS_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_HAIRO_WORLD_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DENABLE_INSTALL_RPATH_USE_LINK_PATH<span class="o">=</span>ON
+</pre></div>
+</div>
+<p><strong>When you want to update your model, project and controller files, you should build Choreonoid again.</strong></p>
+</section>
+<section id="run-choreonoid">
+<h2>Run Choreonoid<a class="headerlink" href="#run-choreonoid" title="Link to this heading"></a></h2>
+<p>Now editing...</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="run_cnoid.html" class="btn btn-neutral float-left" title="Running Choreonoid" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../repositories.html" class="btn btn-neutral float-right" title="GitHub Repositories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Kenta Suzuki.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
