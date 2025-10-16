@@ -19,7 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="GitHub Repositories" href="../repositories.html" />
+    <link rel="next" title="YouTube Archives" href="../archives.html" />
     <link rel="prev" title="Running Choreonoid" href="run_cnoid.html" /> 
 </head>
 
@@ -61,6 +61,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../archives.html">YouTube Archives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../repositories.html">GitHub Repositories</a></li>
 </ul>
 
@@ -136,24 +137,26 @@
 <div><ol class="arabic simple">
 <li><p>Launch Choreonoid</p></li>
 <li><p>Open the Body file of STEP2</p></li>
-<li><p>Add SimpleController of STEP3 as a child item of the Body file</p></li>
-<li><p>Add BodyROS2Item as a child item of the Body file</p></li>
+<li><p>Add SimpleController of STEP3 as a child item of the loaded Body</p></li>
+<li><p>Add BodyROS2Item as a child item of the loaded Body</p></li>
 <li><p>Save a project file</p></li>
 </ol>
 </div></blockquote>
 <p><strong>DO NOT change Body's translation (X, Y) and rotation (R, P, Y) values</strong></p>
+<p><strong>Create a project file for each robot.</strong></p>
 </section>
 <section id="edit-a-yaml-file">
 <h2>Edit a YAML file<a class="headerlink" href="#edit-a-yaml-file" title="Link to this heading"></a></h2>
 <p>Here, we use <strong>wrs-plugin/registration/registration_wrs2025.yaml</strong> as an example of YAML file.
-Open the YAML file in any text editor and replace the second line with the following:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">robot_list</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;RobotList</span><span class="w">  </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">&lt;Name of the project where the custom robot model is saved&gt;</span><span class="w"> </span><span class="p p-Indicator">]</span>
+Open the YAML file in any text editor and you should replace the second line as follows:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">robot_list</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;RobotList</span><span class="w">  </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">&lt;Project file name where the custom robot model is saved&gt;</span><span class="w"> </span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 <p>When you want to introduce additional custom robot model, you should written RobotList as follows:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">robot_list</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;RobotList</span><span class="w">  </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">&lt;Name of the project where the custom robot model is saved&gt;</span><span class="p p-Indicator">,</span><span class="w">  </span><span class="nv">&lt;Name of the project where the additional custom robot model is saved&gt;</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">robot_list</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;RobotList</span><span class="w">  </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">&lt;Project file name where the custom robot model is saved&gt;</span><span class="p p-Indicator">,</span><span class="w">  </span><span class="nv">&lt;Project file name where the additional custom robot model is saved&gt;</span><span class="w"> </span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
+<p><strong>To swap the positions of your custom robots, change their order in the list.</strong></p>
 </section>
 <section id="install-robot-package">
 <h2>Install ROBOT PACKAGE<a class="headerlink" href="#install-robot-package" title="Link to this heading"></a></h2>
@@ -175,7 +178,7 @@ $<span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </s
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
 $<span class="w"> </span><span class="nb">source</span><span class="w"> </span>install/setup.bash
-$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>choreonoid_ros<span class="w"> </span>choreonoid<span class="w"> </span>~/ros2_ws/src/choreonoid/ext/wrs-plugin/registration/registration_wrs2025.yaml<span class="w"> </span>--wrs-util<span class="w"> </span>ps1
+$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>choreonoid_ros<span class="w"> </span>choreonoid<span class="w"> </span>~/ros2_ws/src/choreonoid/ext/wrs-plugin/registration/registration_wrs2025.yaml<span class="w"> </span>--wrs-util<span class="w"> </span>testrun
 </pre></div>
 </div>
 </section>
@@ -186,7 +189,7 @@ $<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="run_cnoid.html" class="btn btn-neutral float-left" title="Running Choreonoid" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../repositories.html" class="btn btn-neutral float-right" title="GitHub Repositories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../archives.html" class="btn btn-neutral float-right" title="YouTube Archives" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

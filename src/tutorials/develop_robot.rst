@@ -38,27 +38,32 @@ STEP4 Create a Project file
 
  1. Launch Choreonoid
  2. Open the Body file of STEP2
- 3. Add SimpleController of STEP3 as a child item of the Body file
- 4. Add BodyROS2Item as a child item of the Body file
+ 3. Add SimpleController of STEP3 as a child item of the loaded Body
+ 4. Add BodyROS2Item as a child item of the loaded Body
  5. Save a project file
 
 **DO NOT change Body's translation (X, Y) and rotation (R, P, Y) values**
+
+
+**Create a project file for each robot.**
 
 Edit a YAML file
 ----------------
 
 Here, we use **wrs-plugin/registration/registration_wrs2025.yaml** as an example of YAML file.
-Open the YAML file in any text editor and replace the second line with the following:
+Open the YAML file in any text editor and you should replace the second line as follows:
 
 .. code-block:: yaml
     
-    robot_list: &RobotList  [ <Name of the project where the custom robot model is saved> ]
+    robot_list: &RobotList  [ <Project file name where the custom robot model is saved> ]
 
 When you want to introduce additional custom robot model, you should written RobotList as follows:
 
 .. code-block:: yaml
 
-    robot_list: &RobotList  [ <Name of the project where the custom robot model is saved>,  <Name of the project where the additional custom robot model is saved> ]
+    robot_list: &RobotList  [ <Project file name where the custom robot model is saved>,  <Project file name where the additional custom robot model is saved> ]
+
+**To swap the positions of your custom robots, change their order in the list.**
 
 Install ROBOT PACKAGE
 ---------------------
@@ -88,4 +93,4 @@ Run Choreonoid
     $ cd ~
     $ cd ~/ros2_ws
     $ source install/setup.bash
-    $ ros2 run choreonoid_ros choreonoid ~/ros2_ws/src/choreonoid/ext/wrs-plugin/registration/registration_wrs2025.yaml --wrs-util ps1
+    $ ros2 run choreonoid_ros choreonoid ~/ros2_ws/src/choreonoid/ext/wrs-plugin/registration/registration_wrs2025.yaml --wrs-util testrun
