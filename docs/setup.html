@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" data-content_root="./">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>検索 &mdash; WRS Simulation Disaster Challenge 0.0 ドキュメント</title>
+  <title>Simulation Environment Setup &mdash; WRS Simulation Disaster Challenge 0.0 ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=86f27845" />
 
   
-    
   
         <script src="_static/jquery.js?v=8dae8fb0"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -17,10 +17,8 @@
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/translations.js?v=4dbe4bdc"></script>
     <script src="_static/js/theme.js"></script>
-    <script src="_static/searchtools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
-    <link rel="search" title="検索" href="#" /> 
+    <link rel="search" title="検索" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -35,7 +33,7 @@
             WRS Simulation Disaster Challenge
           </a>
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -46,7 +44,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation/index.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="setup_env.html">Simulation Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="archives.html">YouTube Archives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repositories.html">GitHub Repositories</a></li>
 </ul>
@@ -65,8 +62,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">検索</li>
+      <li class="breadcrumb-item active">Simulation Environment Setup</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="_sources/setup.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -74,18 +72,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  <section id="simulation-environment-setup">
+<h1>Simulation Environment Setup<a class="headerlink" href="#simulation-environment-setup" title="Link to this heading"></a></h1>
+<section id="competition-network-setup">
+<h2>Competition Network Setup<a class="headerlink" href="#competition-network-setup" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl>
+<dt>Robot simulation will be performed on computers provided by the organizers</dt><dd><p>The specs of the organizer's computer: <a class="reference external" href="https://www.amazon.co.jp/dp/B0BTM9SYSX?language=en_US">https://www.amazon.co.jp/dp/B0BTM9SYSX?language=en_US</a></p>
+</dd>
+<dt>Please obtain the simulation results via network communication and operate the robots on your own computers. The computers provided by the organizers will serve as servers, and the computers provided by the competitors will serve as clients.</dt><dd><p>The mobile robot is in a simulation on the organizer's computers and connected to the competitor's computers via the network. This relationship is similar to a real mobile robot connected to a host computers via a network. If a team wishes to use its unique robot or functions in the match, it will submit the robot model and program to the organizers, who will implement it on the competition simulation computers.</p>
+</dd>
+<dt>Example movie for configuration (Click on the image to view simulation on youtube)</dt><dd><p>Connection and IP setting</p>
+<p>Remote Robot Control via ROS2 Communication</p>
+</dd>
+</dl>
+<p>Note: Do not use Wi-Fi communication while using this connection method. Choreonoid simulation will slow down while Wi-Fi communication is in use.</p>
+</div></blockquote>
+<p>To process Choreonoid on a Nvidia GPU</p>
+</section>
+<section id="mandatory-graphics-card-configuration">
+<h2>[MANDATORY] Graphics Card Configuration<a class="headerlink" href="#mandatory-graphics-card-configuration" title="Link to this heading"></a></h2>
+<p>To process Choreonoid with an Nvidia GPU, change the settings as follows:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Select Prime Profiles in &quot;NVIDIA settings&quot;.</p></li>
+<li><p>For &quot;Select the GPU you would like to use&quot;, select &quot;NVIDIA (Performance Mode)&quot;</p></li>
+<li><p>When you launch Choreonoid, if &quot;Driver Profile: NVIDIA Corporation XX&quot; displays as shown below, Choreonoid will use the NVIDIA GPU.</p></li>
+</ol>
+</div></blockquote>
+<p><strong>If you are running on a laptop, please run the Choreonoid simulation while it is connected to a power source. If it is not connected, the simulation will run slowly.</strong></p>
+</section>
+</section>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
           </div>
@@ -111,14 +129,7 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-  <script>
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script id="searchindexloader"></script>
-   
-
+  </script> 
 
 </body>
 </html>

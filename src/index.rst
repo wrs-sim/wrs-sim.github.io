@@ -12,6 +12,8 @@ Welcome to WRS Simulation Disaster Challenge's documentation!
 
    installation/index
    tutorials/index
+   setup_env
+   archives
    repositories
 
 Indices and tables

@@ -32,7 +32,7 @@ AGX Dynamics installation reference
 -----------------------------------
 
  * `Choreonoid master documentation: Installation of AGX Dynamics (Ubuntu Linux) <https://choreonoid.org/en/documents/latest/agxdynamics/install/install-agx-ubuntu.html>`_
- * `Tutorial video <https://www.youtube.com/watch?v=SxmwYl_gPEY>`_
+ * `Tutorial video: Installing AGX Dynamics <https://www.youtube.com/watch?v=SxmwYl_gPEY>`_
 
 HAIROWorldPlugin installation reference
 ---------------------------------------
