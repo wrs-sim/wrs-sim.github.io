@@ -1,9 +1,9 @@
 
-Simulation Environment Setup
-============================
+Building a Simulation Environment
+=================================
 
-Competition Network Setup
--------------------------
+Setting up Competition Network
+------------------------------
 
 Robot simulations are performed on a computer provided by the organizer.
 

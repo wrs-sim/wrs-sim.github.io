@@ -9,3 +9,4 @@ Tutorials
    create_ws
    run_cnoid
    develop_robot
+   build_env
