@@ -7,7 +7,8 @@ Template of ROBOT PACKAGE
 
  * `Template robot package <https://github.com/wrs-sim/wrs-robot-template>`_
  * `Template drone package <https://github.com/wrs-sim/wrs-drone-template>`_
-
+ * `Template drone package 2 <https://github.com/wrs-sim/wrs-drone-template2>`_
+ 
 STEP1 Create a new directory
 -----------------------------
 

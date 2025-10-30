@@ -26,10 +26,10 @@ To process Choreonoid with an Nvidia GPU, change the settings as follows:
  2. For "Select the GPU you would like to use", select "NVIDIA (Performance Mode)"
  3. When you launch Choreonoid, if "Driver Profile: NVIDIA Corporation XX" displays as shown below, Choreonoid will use the NVIDIA GPU.
 
-.. image:: ./images/nvidia_settings.png
+.. image:: ../images/nvidia_settings.png
    :scale: 50%
 
-.. image:: ./images/message_output.png
+.. image:: ../images/message_output.png
    :scale: 25%
 
 **If you are running on a laptop, please run the Choreonoid simulation while it is connected to a power source. If it is not connected, the simulation will run slowly.**
