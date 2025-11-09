@@ -46,7 +46,6 @@ Install requisites
 .. code-block:: bash
    
    $ choreonoid/misc/script/install-requisites-ubuntu-22.04.sh
-   $ sudo ./choreonoid/ext/hairo-world-plugin/misc/script/install-requisites-ubuntu-22.04.sh
 
 Build Choreonoid
 ----------------
