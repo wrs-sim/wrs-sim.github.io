@@ -5,8 +5,8 @@ Developing ROBOT PACKAGE
 Template of ROBOT PACKAGE
 -------------------------
 
- * `Template robot package <https://github.com/wrs-sim/wrs-robot-template>`_
- * `Template drone package <https://github.com/wrs-sim/wrs-drone-template>`_
+ * `Template robot package <https://github.com/wrs2025-sim/wrs-robot-template>`_
+ * `Template drone package <https://github.com/wrs2025-sim/wrs-drone-template>`_
  
 STEP1 Create a new directory
 -----------------------------
