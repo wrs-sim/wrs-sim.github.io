@@ -18,10 +18,11 @@ Clone source repo
    $ cd ~/ros2_ws/src
    $ git clone https://github.com/choreonoid/choreonoid.git
    $ git clone https://github.com/choreonoid/choreonoid_ros.git
-   $ git clone https://github.com/WRS-TDRRC/WRS-TDRRC-2020 choreonoid/ext/WRS2020
+   $ git clone https://github.com/WRS-TDRRC/WRS-TDRRC-2020.git choreonoid/ext/WRS2020
+   $ git clone https://github.com/wrs-sim/WRS2020EX.git choreonoid/ext/WRS2020EX
    $ git clone https://github.com/wrs-frei-simulation/WRS-Pre-2024.git choreonoid/ext/WRS2024PRE
    $ git clone https://github.com/wrs-frei-simulation/WRS-2025.git choreonoid/ext/WRS2025
-   $ git clone --recursive https://github.com/wrs-sim/wrs-plugin choreonoid/ext/wrs-plugin
+   $ git clone https://github.com/wrs-sim/wrs-plugin.git choreonoid/ext/wrs-plugin
    $ git clone https://github.com/wrs-sim/choreonoid_joy2.git
 
 Resolve dependencies
