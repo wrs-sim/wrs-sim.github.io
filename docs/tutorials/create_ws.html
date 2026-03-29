@@ -105,6 +105,8 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/ros
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src
 $<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/choreonoid/choreonoid.git
 $<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/choreonoid/choreonoid_ros.git
+$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/wrs-frei-simulation/WRS-Pre-2024.git<span class="w"> </span>choreonoid/ext/WRS2024PRE
+$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/wrs-frei-simulation/WRS-2025.git<span class="w"> </span>choreonoid/ext/WRS2025
 $<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/wrs-sim/wrs-plugin<span class="w"> </span>choreonoid/ext/wrs-plugin
 $<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/wrs-sim/choreonoid_joy2.git
 </pre></div>
@@ -139,7 +141,7 @@ $<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span
 <section id="build-choreonoid">
 <h2>Build Choreonoid<a class="headerlink" href="#build-choreonoid" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
-$<span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_AGX_DYNAMICS_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_AGX_BODYEXTENSION_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_SCENE_EFFECTS_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_HAIRO_WORLD_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DENABLE_INSTALL_RPATH_USE_LINK_PATH<span class="o">=</span>ON
+$<span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_AGX_DYNAMICS_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_AGX_BODYEXTENSION_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_WRS2018<span class="o">=</span>ON<span class="w"> </span>-DBUILD_SCENE_EFFECTS_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DBUILD_HAIRO_WORLD_PLUGIN<span class="o">=</span>ON<span class="w"> </span>-DENABLE_INSTALL_RPATH_USE_LINK_PATH<span class="o">=</span>ON
 </pre></div>
 </div>
 </section>

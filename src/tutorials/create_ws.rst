@@ -18,6 +18,8 @@ Clone source repo
    $ cd ~/ros2_ws/src
    $ git clone https://github.com/choreonoid/choreonoid.git
    $ git clone https://github.com/choreonoid/choreonoid_ros.git
+   $ git clone https://github.com/wrs-frei-simulation/WRS-Pre-2024.git choreonoid/ext/WRS2024PRE
+   $ git clone https://github.com/wrs-frei-simulation/WRS-2025.git choreonoid/ext/WRS2025
    $ git clone --recursive https://github.com/wrs-sim/wrs-plugin choreonoid/ext/wrs-plugin
    $ git clone https://github.com/wrs-sim/choreonoid_joy2.git
 
@@ -53,7 +55,7 @@ Build Choreonoid
 .. code-block:: bash
    
    $ cd ~/ros2_ws
-   $ colcon build --symlink-install --cmake-args -DBUILD_AGX_DYNAMICS_PLUGIN=ON -DBUILD_AGX_BODYEXTENSION_PLUGIN=ON -DBUILD_SCENE_EFFECTS_PLUGIN=ON -DBUILD_HAIRO_WORLD_PLUGIN=ON -DENABLE_INSTALL_RPATH_USE_LINK_PATH=ON
+   $ colcon build --symlink-install --cmake-args -DBUILD_AGX_DYNAMICS_PLUGIN=ON -DBUILD_AGX_BODYEXTENSION_PLUGIN=ON -DBUILD_WRS2018=ON -DBUILD_SCENE_EFFECTS_PLUGIN=ON -DBUILD_HAIRO_WORLD_PLUGIN=ON -DENABLE_INSTALL_RPATH_USE_LINK_PATH=ON
 
 References
 ----------
